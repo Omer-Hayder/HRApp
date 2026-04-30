@@ -1,0 +1,45 @@
+@API_HostAddress = http://localhost:5181
+
+### 🔹 Get All Employees
+GET {{API_HostAddress}}/api/employees
+Accept: application/json
+
+
+### 🔹 Get Permanent Employees
+GET {{API_HostAddress}}/api/employees/permanent
+Accept: application/json
+
+
+### 🔹 Get Contract Employees
+GET {{API_HostAddress}}/api/employees/contract
+Accept: application/json
+
+
+### 🔹 Get Employees by Minimum Salary
+GET {{API_HostAddress}}/api/employees/salary/8000
+Accept: application/json
+
+
+### 🔹 Get Employees with Department
+GET {{API_HostAddress}}/api/employees/with-department
+Accept: application/json
+
+
+### 🔹 Get Employees with Projects
+GET {{API_HostAddress}}/api/employees/with-projects
+Accept: application/json
+
+
+### 🔹 Get Top Employees by Total Hours
+GET {{API_HostAddress}}/api/employees/top-hours
+Accept: application/json
+
+
+### 🔹 Get Average Salary
+GET {{API_HostAddress}}/api/employees/avg-salary
+Accept: application/json
+
+
+### 🔹 Search Employees by Name
+GET {{API_HostAddress}}/api/employees/search?name=Omer
+Accept: application/json
