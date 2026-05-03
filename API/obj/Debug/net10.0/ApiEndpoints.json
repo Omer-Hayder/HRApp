@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "GetAll",
+    "Method": "Get",
     "RelativePath": "api/Employees",
     "HttpMethod": "GET",
     "IsController": true,
@@ -11,66 +11,15 @@
   },
   {
     "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "AvgSalary",
-    "RelativePath": "api/Employees/avg-salary",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "GetContract",
-    "RelativePath": "api/Employees/contract",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "EmployeePagination",
-    "RelativePath": "api/Employees/employee-pagination",
-    "HttpMethod": "GET",
+    "Method": "Create",
+    "RelativePath": "api/Employees",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "GetPermanent",
-    "RelativePath": "api/Employees/permanent",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "GetBySalary",
-    "RelativePath": "api/Employees/salary/{min}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "min",
-        "Type": "System.Decimal",
+        "Name": "employee",
+        "Type": "API.Entities.Employee",
         "IsRequired": true
       }
     ],
@@ -78,15 +27,31 @@
   },
   {
     "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "Search",
-    "RelativePath": "api/Employees/search",
-    "HttpMethod": "GET",
+    "Method": "Update",
+    "RelativePath": "api/Employees",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "name",
-        "Type": "System.String",
+        "Name": "employee",
+        "Type": "API.Entities.Employee",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.EmployeesController",
+    "Method": "Delete",
+    "RelativePath": "api/Employees",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],
@@ -94,32 +59,18 @@
   },
   {
     "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "TopHours",
-    "RelativePath": "api/Employees/top-hours",
+    "Method": "Get",
+    "RelativePath": "api/Employees/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "WithDepartment",
-    "RelativePath": "api/Employees/with-department",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "WithProjects",
-    "RelativePath": "api/Employees/with-projects",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

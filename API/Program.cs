@@ -1,5 +1,7 @@
 
 using API.Data;
+using API.Interfaces;
+using API.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -23,6 +25,8 @@ namespace API
             });
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+
+            builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
             var app = builder.Build();
 
