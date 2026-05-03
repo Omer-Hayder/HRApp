@@ -16,7 +16,7 @@ Accept: application/json
 
 
 ### 🔹 Get Employees by Minimum Salary
-GET {{API_HostAddress}}/api/employees/salary/8000
+GET {{API_HostAddress}}/api/employees/salary/1000
 Accept: application/json
 
 
@@ -41,5 +41,8 @@ Accept: application/json
 
 
 ### 🔹 Search Employees by Name
-GET {{API_HostAddress}}/api/employees/search?name=Omer
+GET {{API_HostAddress}}/api/employees/search?name=Employee
 Accept: application/json
+
+###  Employee Pagination
+GET {{API_HostAddress}}/api/employees/employee-pagination?pageNumber=2&pageSize=5

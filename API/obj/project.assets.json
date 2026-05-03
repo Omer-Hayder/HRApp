@@ -3166,11 +3166,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\omer_\\source\\repos\\HRApp\\API\\API.csproj",
+      "projectUniqueName": "D:\\Projects\\HRApp\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\omer_\\source\\repos\\HRApp\\API\\API.csproj",
+      "projectPath": "D:\\Projects\\HRApp\\API\\API.csproj",
       "packagesPath": "C:\\Users\\omer_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\omer_\\source\\repos\\HRApp\\API\\obj\\",
+      "outputPath": "D:\\Projects\\HRApp\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

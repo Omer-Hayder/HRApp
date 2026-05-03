@@ -31,6 +31,27 @@
   },
   {
     "ContainingType": "API.Controllers.EmployeesController",
+    "Method": "EmployeePagination",
+    "RelativePath": "api/Employees/employee-pagination",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.EmployeesController",
     "Method": "GetPermanent",
     "RelativePath": "api/Employees/permanent",
     "HttpMethod": "GET",
