@@ -8,3 +8,15 @@ Accept: application/json
 ### Get All Departments
 GET {{API_HostAddress}}/api/departments
 Accept: application/json
+
+### Post Employee With Projects
+POST {{API_HostAddress}}/api/employees
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Othman",
+  "salary": 6500,
+  "departmentId": 1,
+  "projects": [1, 3]
+}

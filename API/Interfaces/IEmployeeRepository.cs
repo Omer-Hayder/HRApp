@@ -1,9 +1,10 @@
-﻿using API.Entities;
+﻿using API.DTOs;
+using API.Entities;
 
 namespace API.Interfaces
 {
     public interface IEmployeeRepository: IGenericRepository<Employee>
     {
-        IEnumerable<Employee> GetAllWithDepartment();
+        IEnumerable<EmployeeResponseDto> GetAllWithDepartment();
     }
 }

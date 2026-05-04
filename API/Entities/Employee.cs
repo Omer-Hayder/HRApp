@@ -2,7 +2,7 @@
 
 namespace API.Entities
 {
-    public abstract class Employee
+    public class Employee
     {
         public int Id { get; set; }
         public required string Name { get; set; }

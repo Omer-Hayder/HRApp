@@ -6,13 +6,14 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProjectsController(IGenericRepository<Project> repository) : ControllerBase
+    public class ProjectsController(IUnitOfWork unitOfWork) : ControllerBase
     {
 
         [HttpPost]
         public IActionResult CreateProject(Project project)
         {
-            repository.Create(project);
+            unitOfWork.Projects.Create(project);
+            unitOfWork.Complete();
 
             return Ok(project);
         }

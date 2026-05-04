@@ -10,39 +10,49 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployeesController(IEmployeeRepository repository) : ControllerBase
+    public class EmployeesController(IUnitOfWork unitOfWork) : ControllerBase
     {
 
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(repository.GetAllWithDepartment());
+            return Ok(unitOfWork.Employees.GetAllWithDepartment());
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            return Ok(repository.GetById(id));
+            return Ok(unitOfWork.Employees.GetById(id));
         }
 
         [HttpPost]
-        public IActionResult Create(Employee employee)
+        public IActionResult Create(CreateEmployeeDto dto)
         {
-            repository.Create(employee);
+            var employee = dto.MapToEmployee();
+            unitOfWork.Employees.Create(employee);
+
+            foreach (var project in dto.Projects)
+            {
+                unitOfWork.EmployeeProjects.Create(dto.MapToEmployeeProject(employee, project));
+            }
+
+            unitOfWork.Complete();
             return Ok(employee);
         }
 
         [HttpPut]
         public IActionResult Update(Employee employee)
         {
-            repository.Update(employee);
+            unitOfWork.Employees.Update(employee);
+            unitOfWork.Complete();
             return Ok(employee);
         }
 
         [HttpDelete]
         public IActionResult Delete(int id)
         {
-            repository.Delete(id);
+            unitOfWork.Employees.Delete(id);
+            unitOfWork.Complete();
             return Ok();
         }
     }

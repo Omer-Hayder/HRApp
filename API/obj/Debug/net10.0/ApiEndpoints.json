@@ -92,8 +92,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "employee",
-        "Type": "API.Entities.Employee",
+        "Name": "dto",
+        "Type": "API.DTOs.CreateEmployeeDto",
         "IsRequired": true
       }
     ],

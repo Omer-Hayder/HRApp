@@ -1,5 +1,6 @@
 
 using API.Data;
+using API.Extentions;
 using API.Interfaces;
 using API.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -14,20 +15,9 @@ namespace API
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            var config = builder.Configuration;
+            builder.Services.AddApplicationServices(config);
 
-            builder.Services.AddControllers()
-                .AddJsonOptions(opt => 
-                opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-
-            builder.Services.AddDbContext<AppDbContext>(opt =>
-            {
-                opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-            });
-            // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-            builder.Services.AddOpenApi();
-
-            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             var app = builder.Build();
 
             // Seeder Logic
