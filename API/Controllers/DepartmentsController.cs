@@ -1,22 +1,18 @@
-﻿using API.Data;
-using API.DTOs;
-using API.Entities;
+﻿using API.Entities;
 using API.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployeesController(IEmployeeRepository repository) : ControllerBase
+    public class DepartmentsController(IGenericRepository<Department> repository) : ControllerBase
     {
-
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(repository.GetAllWithDepartment());
+            return Ok(repository.GetAll());
         }
 
         [HttpGet("{id}")]
@@ -26,17 +22,17 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Employee employee)
+        public IActionResult Create(Department department)
         {
-            repository.Create(employee);
-            return Ok(employee);
+            repository.Create(department);
+            return Ok(department);
         }
 
         [HttpPut]
-        public IActionResult Update(Employee employee)
+        public IActionResult Update(Department department)
         {
-            repository.Update(employee);
-            return Ok(employee);
+            repository.Update(department);
+            return Ok(department);
         }
 
         [HttpDelete]

@@ -2,12 +2,8 @@
 
 namespace API.Interfaces
 {
-    public interface IEmployeeRepository
+    public interface IEmployeeRepository: IGenericRepository<Employee>
     {
-        IEnumerable<Employee> GetAll();
-        Employee? GetById(int id);
-        void Create(Employee employee);
-        void Update(Employee employee);
-        void Delete(int id);
+        IEnumerable<Employee> GetAllWithDepartment();
     }
 }
