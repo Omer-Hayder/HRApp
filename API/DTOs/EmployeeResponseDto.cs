@@ -9,14 +9,5 @@ namespace API.DTOs
 
         public string? DepartmentName { get; set; }
 
-        public EmployeeResponseDto MapFromEntity(Employee employee)
-        {
-            return new EmployeeResponseDto()
-            {
-                Name = employee.Name,
-                Salary = employee.Salary,
-                DepartmentName = employee.Department!.Name
-            };
-        }
     }
 }

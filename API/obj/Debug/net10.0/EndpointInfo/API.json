@@ -319,7 +319,7 @@
             ],
             "format": "int32"
           },
-          "projects": {
+          "projectIds": {
             "type": "array",
             "items": {
               "pattern": "^-?(?:0|[1-9]\\d*)$",
