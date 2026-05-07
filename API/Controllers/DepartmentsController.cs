@@ -10,7 +10,7 @@ namespace API.Controllers
     public class DepartmentsController(IGenericRepository<Department> repository) : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get()
+        public ActionResult<IEnumerable<Department>> Get()
         {
             return Ok(repository.GetAll());
         }

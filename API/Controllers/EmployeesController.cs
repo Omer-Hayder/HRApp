@@ -3,6 +3,7 @@ using API.DTOs;
 using API.Entities;
 using API.Interfaces;
 using API.Services;
+using Asp.Versioning;
 using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
@@ -11,11 +12,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class EmployeesController(IUnitOfWork unitOfWork, IEmployeeService employeeService) : ControllerBase
     {
-
+        [ApiVersion("2.0")]
         [HttpGet]
         public IActionResult Get()
         {

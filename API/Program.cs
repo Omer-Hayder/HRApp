@@ -20,12 +20,12 @@ namespace API
             var config = builder.Configuration;
             builder.Services.AddApplicationServices(config);
 
-            //Log.Logger = new LoggerConfiguration()
-            //.MinimumLevel.Debug()
-            //.WriteTo.File("logs/myapp", rollingInterval: RollingInterval.Day)
-            //.CreateLogger();
+            Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .WriteTo.File("logs/myapp", rollingInterval: RollingInterval.Day)
+            .CreateLogger();
 
-            builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
+            //builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
 
             var app = builder.Build();
 
@@ -41,6 +41,13 @@ namespace API
             {
                 app.MapOpenApi();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "V1 Docs");
+                options.SwaggerEndpoint("/swagger/v2/swagger.json", "V2 Docs");
+            });
 
             app.UseHttpsRedirection();
 
