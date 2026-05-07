@@ -2,6 +2,7 @@
 using API.DTOs;
 using API.Entities;
 using API.Interfaces;
+using API.Services;
 using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
@@ -12,7 +13,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployeesController(IUnitOfWork unitOfWork, IMapper mapper, IValidator<CreateEmployeeDto> validator) : ControllerBase
+    public class EmployeesController(IUnitOfWork unitOfWork, IEmployeeService employeeService) : ControllerBase
     {
 
         [HttpGet]
@@ -30,19 +31,7 @@ namespace API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateEmployeeDto dto)
         {
-            var result = await validator.ValidateAsync(dto);
-            if (!result.IsValid)
-            {
-                return BadRequest(new
-                {
-                    errors = result.Errors.Select(e => e.ErrorMessage)
-                });
-            }
-
-            var employee = mapper.Map<Employee>(dto);
-            unitOfWork.Employees.Create(employee);
-
-            unitOfWork.Complete();
+            var employee = await employeeService.CreateAsync(dto);
             return Ok(employee);
         }
 

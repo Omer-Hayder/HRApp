@@ -15,8 +15,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "Sal",
+  "name": "Abbas",
   "salary": 7200,
-  "departmentId": 0,
-  "projectIds": []
+  "departmentId": 1,
+  "projectIds": [1, 2]
 }

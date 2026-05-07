@@ -2,8 +2,10 @@
 using API.Data;
 using API.Extentions;
 using API.Interfaces;
+using API.Middleware;
 using API.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using System.Text.Json.Serialization;
 
 namespace API
@@ -17,6 +19,13 @@ namespace API
             // Add services to the container.
             var config = builder.Configuration;
             builder.Services.AddApplicationServices(config);
+
+            //Log.Logger = new LoggerConfiguration()
+            //.MinimumLevel.Debug()
+            //.WriteTo.File("logs/myapp", rollingInterval: RollingInterval.Day)
+            //.CreateLogger();
+
+            builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
 
             var app = builder.Build();
 
@@ -37,6 +46,8 @@ namespace API
 
             app.UseAuthorization();
 
+            //app.UseSerilogRequestLogging();
+            app.UseMiddleware<ExceptionMiddleware>();
 
             app.MapControllers();
 

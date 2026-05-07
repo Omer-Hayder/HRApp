@@ -2,6 +2,7 @@
 using API.Interfaces;
 using API.Mappings;
 using API.Repositories;
+using API.Services;
 using API.Validators;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -29,6 +30,7 @@ namespace API.Extentions
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
 
             services.AddAutoMapper(typeof(MappingProfile));
 
