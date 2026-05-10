@@ -1,18 +1,64 @@
 [
   {
+    "ContainingType": "API.Controllers.AuthenticationsController",
+    "Method": "Login",
+    "RelativePath": "api/Authentications/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "API.DTOs.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.AuthenticationsController",
+    "Method": "Register",
+    "RelativePath": "api/Authentications/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "API.DTOs.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "API.Entities.AppUser",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "API.Controllers.DepartmentsController",
     "Method": "Get",
     "RelativePath": "api/Departments",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "api-version",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[API.Entities.Department, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -37,11 +83,6 @@
         "Name": "department",
         "Type": "API.Entities.Department",
         "IsRequired": true
-      },
-      {
-        "Name": "api-version",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -58,11 +99,6 @@
         "Name": "department",
         "Type": "API.Entities.Department",
         "IsRequired": true
-      },
-      {
-        "Name": "api-version",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -78,11 +114,6 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "api-version",
-        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -100,11 +131,80 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
-      },
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.EmployeesController",
+    "Method": "Get",
+    "RelativePath": "api/Employees",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.EmployeesController",
+    "Method": "Create",
+    "RelativePath": "api/Employees",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Name": "api-version",
-        "Type": "System.String",
+        "Name": "dto",
+        "Type": "API.DTOs.CreateEmployeeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.EmployeesController",
+    "Method": "Update",
+    "RelativePath": "api/Employees",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employee",
+        "Type": "API.Entities.Employee",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.EmployeesController",
+    "Method": "Delete",
+    "RelativePath": "api/Employees",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.EmployeesController",
+    "Method": "Get",
+    "RelativePath": "api/Employees/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -120,111 +220,6 @@
       {
         "Name": "project",
         "Type": "API.Entities.Project",
-        "IsRequired": true
-      },
-      {
-        "Name": "api-version",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "Create",
-    "RelativePath": "api/v{version}/Employees",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "API.DTOs.CreateEmployeeDto",
-        "IsRequired": true
-      },
-      {
-        "Name": "version",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "Update",
-    "RelativePath": "api/v{version}/Employees",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "employee",
-        "Type": "API.Entities.Employee",
-        "IsRequired": true
-      },
-      {
-        "Name": "version",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "Delete",
-    "RelativePath": "api/v{version}/Employees",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "version",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "Get",
-    "RelativePath": "api/v{version}/Employees",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "version",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.Controllers.EmployeesController",
-    "Method": "Get",
-    "RelativePath": "api/v{version}/Employees/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "version",
-        "Type": "System.String",
         "IsRequired": true
       }
     ],

@@ -1,4 +1,5 @@
 ﻿using API.Data;
+using API.Entities;
 using API.Interfaces;
 using API.Mappings;
 using API.Repositories;
@@ -7,6 +8,7 @@ using API.Validators;
 using Asp.Versioning;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi;
@@ -31,25 +33,17 @@ namespace API.Extentions
             services.AddOpenApi();
 
             services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
-                c.SwaggerDoc("v2", new OpenApiInfo { Title = "API", Version = "v2" });
-            });
+            services.AddSwaggerGen();
 
             services.AddApiVersioning(options =>
             {
                 options.DefaultApiVersion = new ApiVersion(1, 0);
                 options.AssumeDefaultVersionWhenUnspecified = true;
-            }).AddApiExplorer(options =>
-            {
-                options.GroupNameFormat = "'v'VVV";
-                options.FormatGroupName = (group, version) => $"{group} - {version}";
             });
 
-
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IAuthService, AuthService>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IEmployeeService, EmployeeService>();
 

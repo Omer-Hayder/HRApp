@@ -13,19 +13,108 @@
     }
   ],
   "paths": {
+    "/api/Authentications/login": {
+      "post": {
+        "tags": [
+          "Authentications"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Authentications/register": {
+      "post": {
+        "tags": [
+          "Authentications"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppUser"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppUser"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Departments": {
       "get": {
         "tags": [
           "Departments"
-        ],
-        "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -63,15 +152,6 @@
         "tags": [
           "Departments"
         ],
-        "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -101,15 +181,6 @@
       "put": {
         "tags": [
           "Departments"
-        ],
-        "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "requestBody": {
           "content": {
@@ -152,13 +223,6 @@
                 "string"
               ],
               "format": "int32"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "type": "string"
             }
           }
         ],
@@ -187,13 +251,6 @@
               ],
               "format": "int32"
             }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -203,55 +260,20 @@
         }
       }
     },
-    "/api/v{version}/Employees/{id}": {
+    "/api/Employees": {
       "get": {
         "tags": [
           "Employees"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
-              "format": "int32"
-            }
-          },
-          {
-            "name": "version",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/v{version}/Employees": {
+      },
       "post": {
         "tags": [
           "Employees"
-        ],
-        "parameters": [
-          {
-            "name": "version",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "requestBody": {
           "content": {
@@ -282,16 +304,6 @@
       "put": {
         "tags": [
           "Employees"
-        ],
-        "parameters": [
-          {
-            "name": "version",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "requestBody": {
           "content": {
@@ -335,13 +347,32 @@
               ],
               "format": "int32"
             }
-          },
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Employees/{id}": {
+      "get": {
+        "tags": [
+          "Employees"
+        ],
+        "parameters": [
           {
-            "name": "version",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^-?(?:0|[1-9]\\d*)$",
+              "type": [
+                "integer",
+                "string"
+              ],
+              "format": "int32"
             }
           }
         ],
@@ -356,15 +387,6 @@
       "post": {
         "tags": [
           "Projects"
-        ],
-        "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "requestBody": {
           "content": {
@@ -396,6 +418,98 @@
   },
   "components": {
     "schemas": {
+      "AppUser": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "userName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "normalizedUserName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "email": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "normalizedEmail": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "emailConfirmed": {
+            "type": "boolean"
+          },
+          "passwordHash": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "securityStamp": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "concurrencyStamp": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "phoneNumber": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "phoneNumberConfirmed": {
+            "type": "boolean"
+          },
+          "twoFactorEnabled": {
+            "type": "boolean"
+          },
+          "lockoutEnd": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "lockoutEnabled": {
+            "type": "boolean"
+          },
+          "accessFailedCount": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          }
+        }
+      },
       "CreateEmployeeDto": {
         "required": [
           "name"
@@ -569,6 +683,21 @@
           }
         }
       },
+      "LoginDto": {
+        "required": [
+          "userName",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
       "Project": {
         "required": [
           "name"
@@ -593,10 +722,36 @@
             }
           }
         }
+      },
+      "RegisterDto": {
+        "required": [
+          "firstName",
+          "lastName",
+          "userName",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
       }
     }
   },
   "tags": [
+    {
+      "name": "Authentications"
+    },
     {
       "name": "Departments"
     },

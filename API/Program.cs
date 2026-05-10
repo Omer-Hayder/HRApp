@@ -12,14 +12,16 @@ namespace API
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
             var config = builder.Configuration;
             builder.Services.AddApplicationServices(config);
+            builder.Services.AddIdentityServices(config);
 
+            // Add Serilog
             Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
             .WriteTo.File("logs/myapp", rollingInterval: RollingInterval.Day)
@@ -33,7 +35,8 @@ namespace API
             using (var scope = app.Services.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-                DataSeeder.Seed(db);
+                await db.Database.MigrateAsync();
+                await DataSeeder.Seed(db, scope.ServiceProvider);
             }
 
             // Configure the HTTP request pipeline.
@@ -43,11 +46,7 @@ namespace API
             }
 
             app.UseSwagger();
-            app.UseSwaggerUI(options =>
-            {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "V1 Docs");
-                options.SwaggerEndpoint("/swagger/v2/swagger.json", "V2 Docs");
-            });
+            app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
 

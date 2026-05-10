@@ -12,12 +12,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class EmployeesController(IUnitOfWork unitOfWork, IEmployeeService employeeService) : ControllerBase
     {
-        [ApiVersion("2.0")]
         [HttpGet]
         public IActionResult Get()
         {

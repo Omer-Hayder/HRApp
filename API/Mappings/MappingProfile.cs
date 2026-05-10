@@ -18,6 +18,7 @@ namespace API.Mappings
                         )));
 
             CreateMap<Employee, EmployeeResponseDto>();
+            CreateMap<RegisterDto, AppUser>();
         }
     }
 }

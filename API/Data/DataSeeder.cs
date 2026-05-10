@@ -1,11 +1,28 @@
 ﻿using API.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace API.Data
 {
     public static class DataSeeder
     {
-        public static void Seed(AppDbContext context)
+        public static async         Task
+Seed(AppDbContext context, IServiceProvider serviceProvider)
         {
+            var roleManager =
+            serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+            string[] roles = ["Admin", "Manager", "User"];
+
+            foreach (var role in roles)
+            {
+                var roleExists = await roleManager.RoleExistsAsync(role);
+
+                if (!roleExists)
+                {
+                    await roleManager.CreateAsync(new IdentityRole(role));
+                }
+            }
+
             if (context.Employees.Any()) return;
 
             var random = new Random();

@@ -1,9 +1,10 @@
 ﻿using API.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
 {
-    public class AppDbContext(DbContextOptions options) : DbContext(options)
+    public class AppDbContext(DbContextOptions options) : IdentityDbContext<AppUser>(options)
     {
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
