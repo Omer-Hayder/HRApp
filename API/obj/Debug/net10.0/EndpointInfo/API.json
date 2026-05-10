@@ -727,6 +727,7 @@
         "required": [
           "firstName",
           "lastName",
+          "email",
           "userName",
           "password"
         ],
@@ -736,6 +737,9 @@
             "type": "string"
           },
           "lastName": {
+            "type": "string"
+          },
+          "email": {
             "type": "string"
           },
           "userName": {

@@ -39,8 +39,12 @@ namespace API.Services
 
             var result = userManager.CreateAsync(user, registerDto.Password);
 
-            if (!result.IsCompletedSuccessfully)
+            if (!result.Result.Succeeded)
             {
+                foreach (var error in result.Result.Errors)
+                {
+                    Console.WriteLine(error);
+                }
                 throw new Exception("Cannot create account, please try again later");
             }
 

@@ -50,6 +50,7 @@ namespace API
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             //app.UseSerilogRequestLogging();

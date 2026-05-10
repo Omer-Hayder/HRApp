@@ -24,6 +24,8 @@ namespace API.Services
             var tokenDescriptor = new SecurityTokenDescriptor()
             {
                 Subject = new ClaimsIdentity(authClaims),
+                Issuer = configuration["Jwt:Issuer"],
+                Audience = configuration["Jwt:Audience"],
                 Expires = DateTime.UtcNow.AddMinutes(30),
                 SigningCredentials = creds,
             };

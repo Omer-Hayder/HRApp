@@ -7,6 +7,7 @@ Accept: application/json
 
 ### Get All Departments
 GET {{API_HostAddress}}/api/departments
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIwNTdjZDhkZi0xZDQ1LTQyNDItYWE5YS0yZThiY2Q0OWY0MGYiLCJ1bmlxdWVfbmFtZSI6Im9tZXIiLCJuYmYiOjE3Nzg0MDI3NjQsImV4cCI6MTc3ODQwNDU2NCwiaWF0IjoxNzc4NDAyNzY0LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo3MDE2IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDMwMCJ9.FEuI8aEdc1ecGJtuzXzZJwv2sJPlH1I2cwYUVGVeI-0
 Accept: application/json
 
 ### Post Employee With Projects
