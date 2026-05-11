@@ -5,6 +5,6 @@ namespace API.Interfaces
 {
     public interface IEmployeeRepository: IGenericRepository<Employee>
     {
-        IEnumerable<EmployeeResponseDto> GetAllWithDepartment();
+        Task<IEnumerable<EmployeeResponseDto>> GetAllWithDepartment();
     }
 }

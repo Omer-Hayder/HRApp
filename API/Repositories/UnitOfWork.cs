@@ -1,13 +1,14 @@
 ﻿using API.Data;
 using API.Entities;
 using API.Interfaces;
+using API.Services;
 using AutoMapper;
 
 namespace API.Repositories
 {
-    public class UnitOfWork(AppDbContext context, IMapper mapper) : IUnitOfWork
+    public class UnitOfWork(AppDbContext context, IMapper mapper, ICacheService cache) : IUnitOfWork
     {
-        public IEmployeeRepository Employees => new EmployeeRepository(context, mapper);
+        public IEmployeeRepository Employees => new EmployeeRepository(context, mapper, cache);
 
         public IGenericRepository<Department> Departments => new GenericRepository<Department>(context);
 

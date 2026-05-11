@@ -21,6 +21,15 @@ namespace API
             builder.Services.AddApplicationServices(config);
             builder.Services.AddIdentityServices(config);
 
+            builder.Services.AddResponseCaching();
+
+            // Add Redis Configuration
+            builder.Services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = builder.Configuration["Redis:ConnectionString"];
+                options.InstanceName = builder.Configuration["Redis:InctanceName"];
+            });
+
             // Add Serilog
             Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
@@ -52,6 +61,8 @@ namespace API
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseResponseCaching();
 
             //app.UseSerilogRequestLogging();
             app.UseMiddleware<ExceptionMiddleware>();

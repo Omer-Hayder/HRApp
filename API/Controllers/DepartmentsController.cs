@@ -11,6 +11,7 @@ namespace API.Controllers
     [ApiController]
     public class DepartmentsController(IGenericRepository<Department> repository) : ControllerBase
     {
+        [ResponseCache(Duration = 60)]
         [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult<IEnumerable<Department>> Get()
