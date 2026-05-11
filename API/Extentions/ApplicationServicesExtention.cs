@@ -32,8 +32,30 @@ namespace API.Extentions
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             services.AddOpenApi();
 
+            // Configuration for swagger
             services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(options =>
+            {
+                const string schemeId = "Bearer";
+
+                // 1. Define the Security Scheme
+                options.AddSecurityDefinition(schemeId, new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "bearer", // Must be lowercase per RFC standards
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Enter your JWT token in the format: YourTokenHere"
+                });
+
+                // 2. Add the Security Requirement (New .NET 10 Pattern)
+                options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
+                {
+                    [new OpenApiSecuritySchemeReference(schemeId, document)] = []
+                });
+            });
+
 
             services.AddApiVersioning(options =>
             {
