@@ -30,7 +30,7 @@ namespace API.Controllers
         {
             var result = await authService.RefreshTokenAsync(dto);
 
-            if (result.Message == null)
+            if (!string.IsNullOrEmpty(result.Message))
                 return BadRequest(result);
 
             return Ok(result);

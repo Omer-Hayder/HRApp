@@ -70,7 +70,7 @@ namespace API.Services
                 };
             }
 
-            if (user.RefreshToken != dto.RefreshToken)
+            if (!user.RefreshToken!.Equals(dto.RefreshToken))
             {
                 return new AuthResponseDto
                 {

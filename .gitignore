@@ -3,3 +3,8 @@
 ################################################################################
 
 /.vs
+/API/bin/Debug/net10.0/API.dll
+/API/bin/Debug/net10.0/API.exe
+/API/bin/Debug/net10.0/API.pdb
+/API/obj/Debug/net10.0/ref/API.dll
+/API/obj/Debug/net10.0/refint/API.dll

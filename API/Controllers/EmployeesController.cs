@@ -19,9 +19,9 @@ namespace API.Controllers
     public class EmployeesController(IUnitOfWork unitOfWork, IEmployeeService employeeService) : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Ok(unitOfWork.Employees.GetAllWithDepartment());
+            return Ok(await unitOfWork.Employees.GetAllWithDepartment());
         }
 
         [HttpGet("{id}")]

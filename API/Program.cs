@@ -21,6 +21,9 @@ namespace API
             builder.Services.AddApplicationServices(config);
             builder.Services.AddIdentityServices(config);
 
+            // Add Caching
+            builder.Services.AddMemoryCache();
+
             // Add Serilog
             Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()

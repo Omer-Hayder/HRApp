@@ -2,12 +2,13 @@
 using API.Entities;
 using API.Interfaces;
 using AutoMapper;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace API.Repositories
 {
-    public class UnitOfWork(AppDbContext context, IMapper mapper) : IUnitOfWork
+    public class UnitOfWork(AppDbContext context, IMapper mapper, IMemoryCache cache) : IUnitOfWork
     {
-        public IEmployeeRepository Employees => new EmployeeRepository(context, mapper);
+        public IEmployeeRepository Employees => new EmployeeRepository(context, mapper, cache);
 
         public IGenericRepository<Department> Departments => new GenericRepository<Department>(context);
 
