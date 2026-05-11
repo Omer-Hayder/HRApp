@@ -6,6 +6,7 @@ namespace API.Services
     public interface IAuthService
     {
         Task<AppUser> Register(RegisterDto registerDto);
-        Task<string> Login(LoginDto loginDto);
+        Task<AuthResponseDto> Login(LoginDto loginDto);
+        Task<AuthResponseDto> RefreshTokenAsync(RefreshTokenRequestDto dto);
     }
 }

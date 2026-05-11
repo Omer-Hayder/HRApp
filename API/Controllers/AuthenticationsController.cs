@@ -11,7 +11,7 @@ namespace API.Controllers
     public class AuthenticationsController(IAuthService authService) : ControllerBase
     {
         [HttpPost("login")]
-        public async Task<ActionResult<string>> Login(LoginDto dto)
+        public async Task<ActionResult> Login(LoginDto dto)
         {
             var result = await authService.Login(dto);
 
@@ -23,6 +23,17 @@ namespace API.Controllers
         {
             var resut = await authService.Register(dto);
             return Ok(resut);
+        }
+
+        [HttpPost("refresh-token")]
+        public async Task<ActionResult> RefreshToken(RefreshTokenRequestDto dto)
+        {
+            var result = await authService.RefreshTokenAsync(dto);
+
+            if (result.Message == null)
+                return BadRequest(result);
+
+            return Ok(result);
         }
     }
 }

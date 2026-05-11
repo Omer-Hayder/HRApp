@@ -111,6 +111,38 @@
         }
       }
     },
+    "/api/Authentications/refresh-token": {
+      "post": {
+        "tags": [
+          "Authentications"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Departments": {
       "get": {
         "tags": [
@@ -427,6 +459,16 @@
           "lastName": {
             "type": "string"
           },
+          "refreshToken": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "refreshTokenExpiryTime": {
+            "type": "string",
+            "format": "date-time"
+          },
           "id": {
             "type": [
               "null",
@@ -720,6 +762,17 @@
             "items": {
               "$ref": "#/components/schemas/EmployeeProject"
             }
+          }
+        }
+      },
+      "RefreshTokenRequestDto": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
           }
         }
       },

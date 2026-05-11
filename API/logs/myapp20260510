@@ -92,3 +92,19 @@ System.Exception: Cannot create account, please try again later
    at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
    at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
    at API.Middleware.ExceptionMiddleware.Invoke(HttpContext context) in C:\Users\omer_\OneDrive\Desktop\Temp\API\Middleware\ExceptionMiddleware.cs:line 11
+2026-05-10 19:34:23.360 +03:00 [ERR] Invalid Username
+2026-05-10 19:34:35.101 +03:00 [ERR] Unhandled exception
+System.Exception: Invalid Username
+   at API.Services.AuthService.Login(LoginDto loginDto) in C:\Users\omer_\OneDrive\Desktop\Temp\API\Services\AuthService.cs:line 18
+   at API.Controllers.AuthenticationsController.Login(LoginDto dto) in C:\Users\omer_\OneDrive\Desktop\Temp\API\Controllers\AuthenticationsController.cs:line 16
+   at lambda_method73(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at API.Middleware.ExceptionMiddleware.Invoke(HttpContext context) in C:\Users\omer_\OneDrive\Desktop\Temp\API\Middleware\ExceptionMiddleware.cs:line 11
