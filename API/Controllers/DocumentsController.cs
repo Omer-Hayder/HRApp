@@ -33,6 +33,16 @@ namespace API.Controllers
             return Ok(document);
         }
 
+        [HttpPost("multiple")]
+        public async Task<IActionResult> UploadMultiple([FromForm] UploadMultiDocumentDto dto)
+        {
+            foreach (var file in dto.Files)
+            {
+
+            }
+            return Ok();
+        }
+
         [HttpGet("download/{fileName}")]
         public async Task<IActionResult> Download(string fileName)
         {
@@ -40,5 +50,6 @@ namespace API.Controllers
 
             return File(result.FileBytes, result.ContentType, result.FileName);
         }
+
     }
 }
