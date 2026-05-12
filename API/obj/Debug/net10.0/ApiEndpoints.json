@@ -142,6 +142,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API.Controllers.DocumentsController",
+    "Method": "Upload",
+    "RelativePath": "api/Documents/upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "File",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "EmployeeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.Controllers.EmployeesController",
     "Method": "Get",
     "RelativePath": "api/Employees",

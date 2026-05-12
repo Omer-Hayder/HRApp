@@ -12,6 +12,8 @@ namespace API.Data
         public DbSet<Project> Projects { get; set; }
         public DbSet<EmployeeProject> EmployeeProjects { get; set; }
 
+        public DbSet<EmployeeDocument> EmployeeDocuments { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<EmployeeProject>()

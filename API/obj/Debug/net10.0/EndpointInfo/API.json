@@ -275,6 +275,41 @@
         }
       }
     },
+    "/api/Documents/upload": {
+      "post": {
+        "tags": [
+          "Documents"
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "File": {
+                    "$ref": "#/components/schemas/IFormFile"
+                  },
+                  "EmployeeId": {
+                    "pattern": "^-?(?:0|[1-9]\\d*)$",
+                    "type": [
+                      "integer",
+                      "string"
+                    ],
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Employees": {
       "get": {
         "tags": [
@@ -656,6 +691,63 @@
             "items": {
               "$ref": "#/components/schemas/EmployeeProject"
             }
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmployeeDocument"
+            }
+          }
+        }
+      },
+      "EmployeeDocument": {
+        "required": [
+          "fileName",
+          "originalName",
+          "contentType",
+          "employee"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "originalName": {
+            "type": "string"
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "size": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int64"
+          },
+          "uploadDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "employeeId": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "employee": {
+            "$ref": "#/components/schemas/Employee"
           }
         }
       },
@@ -707,6 +799,10 @@
             "format": "int32"
           }
         }
+      },
+      "IFormFile": {
+        "type": "string",
+        "format": "binary"
       },
       "LoginDto": {
         "required": [
@@ -794,6 +890,9 @@
     },
     {
       "name": "Departments"
+    },
+    {
+      "name": "Documents"
     },
     {
       "name": "Employees"

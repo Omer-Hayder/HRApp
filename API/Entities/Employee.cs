@@ -13,5 +13,7 @@ namespace API.Entities
         public Department? Department { get; set; }
 
         public List<EmployeeProject> EmployeeProjects { get; set; } = [];
+
+        public ICollection<EmployeeDocument> Documents { get; set; } = [];
     }
 }

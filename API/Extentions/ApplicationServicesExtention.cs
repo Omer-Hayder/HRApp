@@ -46,6 +46,7 @@ namespace API.Extentions
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IFileService, FileService>();
             services.AddScoped<ICacheService, CacheService>();
 
             services.AddAutoMapper(typeof(MappingProfile));

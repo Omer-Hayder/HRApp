@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NdJd/3F/1K0=",
+  "dgSpecHash": "TzPBD0DjzuI=",
   "success": true,
-  "projectFilePath": "D:\\Projects\\HRApp\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\omer_\\OneDrive\\Desktop\\Temp\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\omer_\\.nuget\\packages\\asp.versioning.abstractions\\10.0.0\\asp.versioning.abstractions.10.0.0.nupkg.sha512",
     "C:\\Users\\omer_\\.nuget\\packages\\asp.versioning.http\\10.0.0\\asp.versioning.http.10.0.0.nupkg.sha512",
@@ -87,9 +87,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'AutoMapper' 12.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-rvv3-g6hj-g44x",
-      "projectPath": "D:\\Projects\\HRApp\\API\\API.csproj",
+      "projectPath": "C:\\Users\\omer_\\OneDrive\\Desktop\\Temp\\API\\API.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\Projects\\HRApp\\API\\API.csproj",
+      "filePath": "C:\\Users\\omer_\\OneDrive\\Desktop\\Temp\\API\\API.csproj",
       "libraryId": "AutoMapper",
       "targetGraphs": [
         "net10.0"

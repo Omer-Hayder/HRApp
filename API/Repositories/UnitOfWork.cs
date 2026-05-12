@@ -16,6 +16,8 @@ namespace API.Repositories
 
         public IGenericRepository<EmployeeProject> EmployeeProjects => new GenericRepository<EmployeeProject>(context);
 
+        public IGenericRepository<EmployeeDocument> EmployeeDocuments => new GenericRepository<EmployeeDocument>(context);
+
         public int Complete()
         {
             return context.SaveChanges();

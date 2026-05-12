@@ -8,6 +8,7 @@ namespace API.Interfaces
         IGenericRepository<Department> Departments { get; }
         IGenericRepository<Project> Projects { get; }
         IGenericRepository<EmployeeProject> EmployeeProjects { get; }
+        IGenericRepository<EmployeeDocument> EmployeeDocuments { get; }
 
         int Complete();
     }

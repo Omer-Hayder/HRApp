@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\HRApp\\API\\API.csproj": {}
+    "C:\\Users\\omer_\\OneDrive\\Desktop\\Temp\\API\\API.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\HRApp\\API\\API.csproj": {
+    "C:\\Users\\omer_\\OneDrive\\Desktop\\Temp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\HRApp\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\omer_\\OneDrive\\Desktop\\Temp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\Projects\\HRApp\\API\\API.csproj",
+        "projectPath": "C:\\Users\\omer_\\OneDrive\\Desktop\\Temp\\API\\API.csproj",
         "packagesPath": "C:\\Users\\omer_\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\HRApp\\API\\obj\\",
+        "outputPath": "C:\\Users\\omer_\\OneDrive\\Desktop\\Temp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
