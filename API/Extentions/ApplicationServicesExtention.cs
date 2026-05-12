@@ -1,4 +1,5 @@
-﻿using API.Data;
+﻿using API.Authorization;
+using API.Data;
 using API.Entities;
 using API.Interfaces;
 using API.Mappings;
@@ -20,8 +21,9 @@ namespace API.Extentions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
         {
-            services.AddControllers()
-                .AddJsonOptions(opt =>
+            services.AddControllers(options => {
+                options.Filters.Add<PermissionBasedAuthorizationFilter>();
+            }).AddJsonOptions(opt =>
                 opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 

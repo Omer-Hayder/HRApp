@@ -315,7 +315,6 @@ D:\Projects\HRApp\API\obj\Debug\net10.0\staticwebassets.build.json.cache
 D:\Projects\HRApp\API\obj\Debug\net10.0\staticwebassets.development.json
 D:\Projects\HRApp\API\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 D:\Projects\HRApp\API\obj\Debug\net10.0\swae.build.ex.cache
-D:\Projects\HRApp\API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 D:\Projects\HRApp\API\obj\Debug\net10.0\API.csproj.Up2Date
 D:\Projects\HRApp\API\obj\Debug\net10.0\API.dll
 D:\Projects\HRApp\API\obj\Debug\net10.0\refint\API.dll
@@ -526,3 +525,4 @@ D:\Projects\HRApp\API\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFram
 D:\Projects\HRApp\API\bin\Debug\net10.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
 D:\Projects\HRApp\API\bin\Debug\net10.0\Pipelines.Sockets.Unofficial.dll
 D:\Projects\HRApp\API\bin\Debug\net10.0\StackExchange.Redis.dll
+D:\Projects\HRApp\API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

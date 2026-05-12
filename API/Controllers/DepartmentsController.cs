@@ -13,6 +13,7 @@ namespace API.Controllers
     {
         [ResponseCache(Duration = 60)]
         [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "User")]
         [HttpGet]
         public ActionResult<IEnumerable<Department>> Get()
         {

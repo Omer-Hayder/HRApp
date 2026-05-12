@@ -1,4 +1,5 @@
-﻿using API.Data;
+﻿using API.Authorization;
+using API.Data;
 using API.DTOs;
 using API.Entities;
 using API.Interfaces;
@@ -25,6 +26,7 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
+        [CheckPermission(Permission.ReadEmployees)]
         public IActionResult Get(int id)
         {
             return Ok(unitOfWork.Employees.GetById(id));

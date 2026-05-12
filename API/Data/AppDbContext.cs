@@ -11,6 +11,7 @@ namespace API.Data
 
         public DbSet<Project> Projects { get; set; }
         public DbSet<EmployeeProject> EmployeeProjects { get; set; }
+        public DbSet<UserPermission> UserPermissions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,11 +28,13 @@ namespace API.Data
                 .WithMany(p => p.EmployeeProjects)
                 .HasForeignKey(ep => ep.ProjectId);
 
-
             modelBuilder.Entity<Employee>()
                 .HasDiscriminator<string>("EmployeeType")
                 .HasValue<PermanentEmployee>("Permanent")
                 .HasValue<ContractEmployee>("Contract");
+
+            modelBuilder.Entity<UserPermission>()
+                .HasKey(up => new { up.UserId, up.PermissionId });
 
             base.OnModelCreating(modelBuilder);
         }
