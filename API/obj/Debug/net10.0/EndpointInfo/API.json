@@ -310,6 +310,28 @@
         }
       }
     },
+    "/api/Documents/download/{fileName}": {
+      "get": {
+        "tags": [
+          "Documents"
+        ],
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Employees": {
       "get": {
         "tags": [
@@ -704,8 +726,7 @@
         "required": [
           "fileName",
           "originalName",
-          "contentType",
-          "employee"
+          "contentType"
         ],
         "type": "object",
         "properties": {
@@ -747,7 +768,14 @@
             "format": "int32"
           },
           "employee": {
-            "$ref": "#/components/schemas/Employee"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Employee"
+              }
+            ]
           }
         }
       },

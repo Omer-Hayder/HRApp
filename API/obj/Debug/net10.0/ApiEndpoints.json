@@ -143,6 +143,22 @@
   },
   {
     "ContainingType": "API.Controllers.DocumentsController",
+    "Method": "Download",
+    "RelativePath": "api/Documents/download/{fileName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.DocumentsController",
     "Method": "Upload",
     "RelativePath": "api/Documents/upload",
     "HttpMethod": "POST",

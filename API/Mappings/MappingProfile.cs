@@ -19,6 +19,22 @@ namespace API.Mappings
 
             CreateMap<Employee, EmployeeResponseDto>();
             CreateMap<RegisterDto, AppUser>();
+            CreateMap<UploadDocumentDto, EmployeeDocument>()
+                .ForMember(
+                dest => dest.OriginalName,
+                opt => opt.MapFrom(src => src.File.FileName))
+            .ForMember(
+                dest => dest.ContentType,
+                opt => opt.MapFrom(src => src.File.ContentType))
+            .ForMember(
+                dest => dest.Size,
+                opt => opt.MapFrom(src => src.File.Length))
+            .ForMember(
+                dest => dest.UploadDate,
+                opt => opt.Ignore())
+            .ForMember(
+                dest => dest.FileName,
+                opt => opt.Ignore());
         }
     }
 }

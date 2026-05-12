@@ -338,6 +338,11 @@ D:\Projects\HRApp\API\bin\Debug\net10.0\Asp.Versioning.Abstractions.dll
 D:\Projects\HRApp\API\bin\Debug\net10.0\Asp.Versioning.Http.dll
 D:\Projects\HRApp\API\bin\Debug\net10.0\Asp.Versioning.Mvc.dll
 D:\Projects\HRApp\API\bin\Debug\net10.0\Asp.Versioning.Mvc.ApiExplorer.dll
+D:\Projects\HRApp\API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projects\HRApp\API\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Projects\HRApp\API\bin\Debug\net10.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+D:\Projects\HRApp\API\bin\Debug\net10.0\Pipelines.Sockets.Unofficial.dll
+D:\Projects\HRApp\API\bin\Debug\net10.0\StackExchange.Redis.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\appsettings.Development.json
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\appsettings.json
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\API.staticwebassets.endpoints.json
@@ -358,6 +363,8 @@ C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\FluentValidation.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\FluentValidation.AspNetCore.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Humanizer.dll
+C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
@@ -374,6 +381,7 @@ C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.EntityFrame
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.Identity.Client.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
@@ -388,6 +396,7 @@ C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.SqlServer.S
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Mono.TextTemplating.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Pipelines.Sockets.Unofficial.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Serilog.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Serilog.AspNetCore.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Serilog.Extensions.Hosting.dll
@@ -397,6 +406,7 @@ C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Serilog.Settings.Conf
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Serilog.Sinks.Console.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Serilog.Sinks.Debug.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Serilog.Sinks.File.dll
+C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\StackExchange.Redis.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -512,17 +522,10 @@ C:\Users\omer_\OneDrive\Desktop\Temp\API\obj\Debug\net10.0\staticwebassets.build
 C:\Users\omer_\OneDrive\Desktop\Temp\API\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\omer_\OneDrive\Desktop\Temp\API\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\omer_\OneDrive\Desktop\Temp\API\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\omer_\OneDrive\Desktop\Temp\API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\omer_\OneDrive\Desktop\Temp\API\obj\Debug\net10.0\API.csproj.Up2Date
 C:\Users\omer_\OneDrive\Desktop\Temp\API\obj\Debug\net10.0\API.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\obj\Debug\net10.0\refint\API.dll
 C:\Users\omer_\OneDrive\Desktop\Temp\API\obj\Debug\net10.0\API.pdb
 C:\Users\omer_\OneDrive\Desktop\Temp\API\obj\Debug\net10.0\API.genruntimeconfig.cache
 C:\Users\omer_\OneDrive\Desktop\Temp\API\obj\Debug\net10.0\ref\API.dll
-C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\omer_\OneDrive\Desktop\Temp\API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\omer_\OneDrive\Desktop\Temp\API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
-D:\Projects\HRApp\API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\Projects\HRApp\API\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-D:\Projects\HRApp\API\bin\Debug\net10.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
-D:\Projects\HRApp\API\bin\Debug\net10.0\Pipelines.Sockets.Unofficial.dll
-D:\Projects\HRApp\API\bin\Debug\net10.0\StackExchange.Redis.dll

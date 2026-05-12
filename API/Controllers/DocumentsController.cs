@@ -15,6 +15,7 @@ namespace API.Controllers
         [HttpPost("upload")]
         public async Task<IActionResult> Upload([FromForm] UploadDocumentDto dto)
         {
+
             var fileName = await fileService.UploadAsync(dto.File);
 
             var employee = unitOfWork.Employees.GetById(dto.EmployeeId);
@@ -23,11 +24,21 @@ namespace API.Controllers
             }
 
             var document = mapper.Map<EmployeeDocument>(dto);
+            document.FileName = fileName;
+            document.UploadDate = DateTime.UtcNow;
 
             unitOfWork.EmployeeDocuments.Create(document);
             unitOfWork.Complete();
 
             return Ok(document);
+        }
+
+        [HttpGet("download/{fileName}")]
+        public async Task<IActionResult> Download(string fileName)
+        {
+            var result = await fileService.DownloadAsync(fileName);
+
+            return File(result.FileBytes, result.ContentType, result.FileName);
         }
     }
 }
