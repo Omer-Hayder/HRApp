@@ -230,5 +230,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.UserPermissionsController",
+    "Method": "AssignPermissionToUser",
+    "RelativePath": "api/UserPermissions/assign-permission-to-user",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "API.DTOs.AddUserPermissionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
