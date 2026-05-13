@@ -15,5 +15,6 @@ namespace API.Entities
         public List<EmployeeProject> EmployeeProjects { get; set; } = [];
 
         public ICollection<EmployeeDocument> Documents { get; set; } = [];
+        public ICollection<Photo> Photos { get; set; } = [];
     }
 }

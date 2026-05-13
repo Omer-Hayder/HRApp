@@ -48,6 +48,7 @@ namespace API.Extentions
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IFileService, FileService>();
             services.AddScoped<ICacheService, CacheService>();
+            services.AddScoped<IPhotoService, PhotoService>();
 
             services.AddAutoMapper(typeof(MappingProfile));
 

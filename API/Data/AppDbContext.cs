@@ -13,6 +13,7 @@ namespace API.Data
         public DbSet<EmployeeProject> EmployeeProjects { get; set; }
 
         public DbSet<EmployeeDocument> EmployeeDocuments { get; set; }
+        public DbSet<Photo> Photos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

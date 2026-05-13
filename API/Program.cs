@@ -1,6 +1,7 @@
 
 using API.Data;
 using API.Extentions;
+using API.Helpers;
 using API.Interfaces;
 using API.Middleware;
 using API.Repositories;
@@ -29,6 +30,9 @@ namespace API
                 options.Configuration = builder.Configuration["Redis:ConnectionString"];
                 options.InstanceName = builder.Configuration["Redis:InctanceName"];
             });
+
+            // Add Cloudinary Configuration
+            builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
             // Add Serilog
             Log.Logger = new LoggerConfiguration()
