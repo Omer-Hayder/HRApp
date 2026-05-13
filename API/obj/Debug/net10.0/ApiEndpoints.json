@@ -159,6 +159,27 @@
   },
   {
     "ContainingType": "API.Controllers.DocumentsController",
+    "Method": "UploadMultiple",
+    "RelativePath": "api/Documents/multiple",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Files",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "EmployeeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.DocumentsController",
     "Method": "Upload",
     "RelativePath": "api/Documents/upload",
     "HttpMethod": "POST",
@@ -263,6 +284,22 @@
       {
         "Name": "project",
         "Type": "API.Entities.Project",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.WeatherController",
+    "Method": "Get",
+    "RelativePath": "api/Weather/{city}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "city",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

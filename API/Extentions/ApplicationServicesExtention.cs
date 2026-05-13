@@ -41,6 +41,13 @@ namespace API.Extentions
                 options.AssumeDefaultVersionWhenUnspecified = true;
             });
 
+            // Add HttpClient
+            services.AddHttpClient<IWeatherService, WeatherService>(client =>
+            {
+                client.BaseAddress = new Uri("https://api.openweathermap.org/");
+                client.Timeout = TimeSpan.FromSeconds(10);
+            });
+
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
