@@ -1,4 +1,5 @@
-﻿using API.DTOs;
+﻿using API.Data;
+using API.DTOs;
 using API.Entities;
 using API.Interfaces;
 using API.Services;
@@ -10,7 +11,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DocumentsController(IUnitOfWork unitOfWork, IFileService fileService, IMapper mapper, IPhotoService photoService) : ControllerBase
+    public class DocumentsController(IUnitOfWork unitOfWork, AppDbContext dbContext, IFileService fileService, IMapper mapper, IPhotoService photoService) : ControllerBase
     {
         [HttpPost("upload")]
         public async Task<IActionResult> Upload([FromForm] UploadDocumentDto dto)
@@ -36,11 +37,31 @@ namespace API.Controllers
         [HttpPost("multiple")]
         public async Task<IActionResult> UploadMultiple([FromForm] UploadMultiDocumentDto dto)
         {
+            var employee = unitOfWork.Employees.GetById(dto.EmployeeId);
+            if (employee == null)
+            {
+                return BadRequest("Invalid Employee Id");
+            }
+
             foreach (var file in dto.Files)
             {
+                var fileName = await fileService.UploadAsync(file);
 
+                var document = new EmployeeDocument
+                {
+                    FileName = fileName,
+                    ContentType = file.ContentType,
+                    OriginalName = file.FileName,
+                    Size = file.Length,
+                    EmployeeId = employee.Id,
+                    UploadDate = DateTime.UtcNow
+                };
+
+                unitOfWork.EmployeeDocuments.Create(document);
             }
-            return Ok();
+            if(unitOfWork.Complete() > 0)
+                return Ok();
+            return BadRequest("Somthing went wrong");
         }
 
         [HttpGet("download/{fileName}")]
@@ -78,5 +99,29 @@ namespace API.Controllers
             return BadRequest("Problem Adding photo");
         }
 
+        [HttpDelete("delete-photo/{id}")]
+        public async Task<ActionResult> DeletePhoto(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                return BadRequest("No Id");
+
+            id = Uri.UnescapeDataString(id);
+
+            var photo = dbContext.Photos.FirstOrDefault(x => x.PublicId!.Equals(id));
+
+            if (photo == null)
+                return BadRequest("No record to delete");
+
+            var result = await photoService.DeletePhotoAsync(id);
+            if (result.Error != null)
+                return BadRequest(result.Error.Message);
+
+            dbContext.Photos.Remove(photo);
+
+            if(dbContext.SaveChanges()>0)
+                return Ok();
+
+            return BadRequest("Cannot Delete Photo");
+        }
     }
 }

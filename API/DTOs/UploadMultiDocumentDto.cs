@@ -2,7 +2,7 @@
 {
     public class UploadMultiDocumentDto
     {
-        public List<IFormFile> Files { get; set; } = [];
+        public IFormFileCollection Files { get; set; } = default!;
         public int EmployeeId { get; set; }
     }
 }
