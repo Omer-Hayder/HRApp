@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi;
+using Polly;
 using System.Text.Json.Serialization;
 
 namespace API.Extentions
@@ -41,12 +42,24 @@ namespace API.Extentions
                 options.AssumeDefaultVersionWhenUnspecified = true;
             });
 
-            // Add HttpClient
+            // Add HttpClient 
             services.AddHttpClient<IWeatherService, WeatherService>(client =>
             {
                 client.BaseAddress = new Uri("https://api.openweathermap.org/");
                 client.Timeout = TimeSpan.FromSeconds(10);
-            });
+            }).AddTransientHttpErrorPolicy(policy =>
+                policy.WaitAndRetryAsync(3, retryAttempt =>
+                    TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)),
+                    onRetry: (response, delay, retryCount, context) =>
+                    {
+                        Console.WriteLine($"Retry Attempt: {retryCount}");
+                    }
+                )
+             ).AddTransientHttpErrorPolicy(policy =>
+                policy.CircuitBreakerAsync(handledEventsAllowedBeforeBreaking: 5,
+                durationOfBreak: TimeSpan.FromSeconds(30))
+             );
+
 
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IAuthService, AuthService>();

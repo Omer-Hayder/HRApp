@@ -1,6 +1,7 @@
-﻿using API.Services;
-using Microsoft.AspNetCore.Http;
+﻿using API.Exceptions;
+using API.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.IIS;
 
 namespace API.Controllers
 {
@@ -11,9 +12,16 @@ namespace API.Controllers
         [HttpGet("{city}")]
         public async Task<IActionResult> Get(string city)
         {
-            var result = await weatherService.GetWeatherAsync(city);
+            try
+            {
+                var result = await weatherService.GetWeatherAsync(city);
 
-            return Ok(result);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                throw new BadRequestException(ex.Message);
+            }
         }
     }
 }
